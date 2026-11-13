@@ -1,0 +1,42 @@
+NCAA Football 06 - Source-Build Package - October 23, 2026
+
+This package contains the recompilation project and runtime for rebuilding
+the playable beta. Original Xbox game files are required and not included.
+
+BUILD
+Use Windows x64 with Visual Studio C++ tools, Windows SDK, LLVM Clang/lld,
+CMake 3.25+ and Ninja. Open an x64 Visual Studio developer prompt with
+clang, clang++, cmake and ninja on PATH.
+Place your extracted Xbox game files in assets, with default.xbe directly
+inside assets. Run Build-Source.cmd. It regenerates game code, builds the
+release target and copies NCAA06.exe beside assets. It does not launch it.
+Keep config/game.toml intact. Dependencies are bundled.
+Use the installed Visual C++ runtime or DLLs from the playable package.
+Edit src and sdk/runtime for changes; generated game code is regenerated.
+
+CONTROLS
+F11 or Alt+Enter toggles windowed/borderless mode. Alt+F4 exits.
+The cursor hides during active fullscreen/borderless gameplay, and returns
+when switching away, returning to windowed mode, or interacting with UI.
+F12 saves a PNG in screenshots beside the executable. F3 remains diagnostic
+capture. Screenshots have unique names and are created only on request.
+
+Keep your existing settings, game files and hdd saves when updating.
+Game files, saves, executables and build caches are not included here.
+Keep included license and third-party notices when redistributing.
+SHA256-MANIFEST.json lists every packaged file except itself.
+
+TITLE-ID STARTUP UPDATE - October 24, 2026
+The runtime checks XBE title ID 45410080, not its whole-file SHA-1.
+Xbox Live certificate metadata and softmod flags do not trigger the old version
+warning when the title ID matches. Wrong titles or malformed headers are rejected.
+SHA-1 remains in logs for troubleshooting only. Title-ID acceptance does not
+prove compatibility with every regional or modified revision; build mappings
+remain specific to the supported game executable.
+
+Cursor hiding in active fullscreen/borderless mode and F12 PNG screenshots are
+included. PNGs are saved in screenshots beside the EXE. F3 remains diagnostic.
+Existing users: close the game and replace only NCAA06.exe. Back up your previous
+EXE and saves; retain settings, DLLs, assets and hdd. No game files are included.
+Release build and isolated parser tests passed. Game was not launched for this
+update. Existing beta limitations still apply.

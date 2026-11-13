@@ -1,0 +1,10 @@
+# Close the game before changing settings.
+display_mode = "windowed"
+width = 1920
+height = 1200
+render_percent = 200
+fps_cap = 60
+vsync = true
+anisotropic_filtering = 16
+# NCAA Football 06 uses its original 480p guest mode.
+xbox_720p = false

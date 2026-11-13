@@ -1,0 +1,4 @@
+The matching working source completed a release build on October 23, 2026.
+All packaged build/runtime source files match that working tree.
+Archive contents and SHA256 manifest were checked after compression.
+This archive was not separately rebuilt or launched.

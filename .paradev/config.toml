@@ -1,0 +1,24 @@
+# NCAA Football 06 - XBE Recomp (source-build package v0.2.0-beta)
+#
+# Upstream: https://github.com/maddog847/NCAA-Football-06-XBERecomp
+# The source shipped only as a release asset (the upstream repo is README-only),
+# so it is committed here verbatim to keep every workspace self-contained.
+# vendor/ is included on purpose: SDL3, ImGui, Zydis/Zycore and toml++ are
+# bundled by upstream and the CMake build expects them in-tree.
+#
+# BUILD IS WINDOWS x64 ONLY:
+#   Visual Studio C++ tools + Windows SDK, LLVM clang/lld, CMake 3.25+, Ninja.
+#   Run Build-Source.cmd from an x64 VS developer prompt with your own
+#   default.xbe in assets/ (never committed - see assets/ note). The runtime is
+#   D3D12 + Winsock + msvcp140, so there is nothing to install and nothing to
+#   build on macOS or Linux; install/setup/terminals stay off by design.
+#
+# These workspaces are for reading, annotating and diffing the SDK, the XBE
+# recompiler (sdk/tools/recomp) and the per-game mapping (config/game.toml),
+# plus the headless parser harness, which is the only portable piece.
+
+[install]
+run = []
+
+[setup]
+run = []

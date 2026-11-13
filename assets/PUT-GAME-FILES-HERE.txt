@@ -1,0 +1,6 @@
+Supply your own extracted original Xbox NCAA Football 06 game here.
+Place default.xbe directly in assets, with DATA and all other game-root files
+and directories beside it. Do not put another enclosing game folder here.
+Expected default.xbe SHA-1: 8013b94db9bad5bee7b0529d6648a93987961532
+This build targets that exact XBE revision. PS2 files are not interchangeable.
+Factory assets are the release baseline; no modified uniforms are supplied.

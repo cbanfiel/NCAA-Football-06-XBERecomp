@@ -1,0 +1,13 @@
+SOURCE MAP
+Build-Source.cmd / CMakeLists.txt / CMakePresets.json - supported build entry
+config/game.toml - exact-title symbols and indirect callback entry points
+src/game/hooks.cpp - NCAA06 hooks
+src/common/game_info.cpp - title metadata
+sdk/runtime/xdk - Xbox API host implementations
+sdk/runtime/gpu - D3D12 renderer, shaders, textures, geometry, captures
+sdk/runtime/audio - mixer/output
+sdk/runtime/core - application, input, settings and logging
+sdk/runtime/kernel - kernel/thread/file emulation
+sdk/tools/recomp - XBE to generated C++ recompiler
+sdk/xdk - SDK signatures/configuration
+vendor - bundled SDL3, ImGui, Zydis/Zycore, toml++ dependencies
