@@ -46,3 +46,29 @@ Download `NCAA06-Source-Build_Package.zip` from Releases for the complete build 
 Keep all applicable license and third-party notices when redistributing.
 
 This is an unofficial community project and is not affiliated with or endorsed by EA, the NCAA, or Microsoft.
+
+---
+
+## Source in this fork
+
+Upstream ships its source only as the `NCAA06-Source-Build_Package-Beta-2.zip` release asset; the repository itself contains just this README. This fork imports that package verbatim to `main` so the tree is reproducible and every Paradev workspace is self-contained:
+
+- `sdk/` — XboxXBERecomp runtime (D3D12 GPU, XAudio2, kernel/XBE emulation, XDK API host) and the XBE→C++ recompiler in `sdk/tools/recomp/`
+- `config/game.toml` + `config/game.scan-baseline.txt` — per-game symbol map and scan baseline
+- `src/` — the only per-game code: 64 lines of hooks and title metadata
+- `vendor/` — bundled SDL3, ImGui, Zydis/Zycore, toml++
+
+Not tracked, by design: `generated/game/` (recompiled output), `assets/` (your game files), `out/`, `hdd/` saves.
+
+`.git/info/attributes` sets `* -text` so committed bytes match `SHA256-MANIFEST.json` exactly (upstream ships CRLF sources, and `sdk/`/`vendor/` carry their own `text=auto` rules). Verify with:
+
+```sh
+python3 - <<'PY'
+import json, hashlib, os
+m = json.load(open("SHA256-MANIFEST.json"))
+bad = [f for f in m if not os.path.exists(f) or hashlib.sha256(open(f, "rb").read()).hexdigest() != m[f]]
+print(len(m), "files,", len(bad), "mismatched")
+PY
+```
+
+The build is Windows x64 only (Visual Studio C++ tools, Windows SDK, LLVM clang/lld, CMake 3.25+, Ninja); see `START-HERE.txt`. Nothing installs or builds on macOS/Linux — see `.paradev/config.toml`.
